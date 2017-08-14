@@ -7,33 +7,32 @@ package ifpb.ads.jpa.atividade;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 /**
  *
  * @author jose2
  */
+public class ContatoPk implements Serializable{
 
-public class TelefonePK implements Serializable {
-    @Enumerated(EnumType.STRING)
-   private TelTipo tipo;
-   private String numero;
+    private String nome;
+    private String sobreNome;
 
-    public TelefonePK() {
+    public ContatoPk() {
     }
 
-    public TelefonePK(TelTipo tipo, String numero) {
-        this.tipo = tipo;
-        this.numero = numero;
+    private ContatoPk(String nome, String sobreNome) {
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+    }
+     public static ContatoPk  ofContatoPk(String nome, String sobreNome) {
+       return new ContatoPk(nome, sobreNome);
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.tipo);
-        hash = 29 * hash + Objects.hashCode(this.numero);
+        hash = 59 * hash + Objects.hashCode(this.nome);
+        hash = 59 * hash + Objects.hashCode(this.sobreNome);
         return hash;
     }
 
@@ -48,16 +47,16 @@ public class TelefonePK implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TelefonePK other = (TelefonePK) obj;
-        if (!Objects.equals(this.numero, other.numero)) {
+        final ContatoPk other = (ContatoPk) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        if (this.tipo != other.tipo) {
+        if (!Objects.equals(this.sobreNome, other.sobreNome)) {
             return false;
         }
         return true;
     }
+     
+    
 
-   
-   
 }

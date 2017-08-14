@@ -10,13 +10,7 @@ package ifpb.ads.jpa.atividade;
  * @author jose2
  */
 public enum TelTipo {
-      RESIDENCIAL{"RESIDENCIAL"), CELULAR("CELULAR"), CASA("CASA");
-    private String tel;
-
-
-    private TelTipo(String tel) {
-        this.tel = tel;
-    }
-    
-
+      RESIDENCIAL,
+      CELULAR,
+      CASA;
 }
